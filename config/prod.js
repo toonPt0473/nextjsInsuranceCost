@@ -1,5 +1,3 @@
-export default () => {
-    return {
-        serverURL: process.env.SERVER_URL
-    }
-}
+module.exports = {
+    serverURL : process.env.SERVER_URL
+};
