@@ -3,6 +3,6 @@ export default (state , action) => {
         case "ADD_FORM":
             return action.payload;
         default :
-            return state || {}
+            return state || null
     }
 }
