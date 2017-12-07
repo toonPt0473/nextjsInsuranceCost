@@ -8,7 +8,7 @@ export const addForm = (data) => {
 
 export const  sendFormToServer = (data) => {    
     return async dispatch => {
-        const url = `${keys().serverURL}/api/sendform`
+        const url = `https://shielded-beyond-76649.herokuapp.com/api/sendform`
         const res = await axios.post(url , data)
         console.log(res.data)
         dispatch({type: "SEND_DATA" , payload : res.data})
