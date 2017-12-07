@@ -1,3 +1,4 @@
 module.exports = {
-    serverURL : process.env.URL_API
+    serverURL : `https://${process.env.URL_SERVICE_API}.herokuapp.com`
 };
+
