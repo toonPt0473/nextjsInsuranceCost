@@ -1,4 +1,3 @@
 module.exports = {
-    serverURL : process.env.URL_SERVICE_API,
-    test: ""
+    serverURL : process.env.URL_API
 };

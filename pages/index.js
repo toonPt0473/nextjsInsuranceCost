@@ -15,7 +15,7 @@ const uuidv4 = require('uuid/v4');
 class Index extends Component {
     componentDidMount(){
         console.log("=============================")
-        console.log(process.env)
+        console.log(process.env.URL_API)
         console.log(process.env.NODE_ENV)
     }
     loadingComponent(){
