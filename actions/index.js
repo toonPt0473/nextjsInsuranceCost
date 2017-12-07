@@ -1,6 +1,6 @@
 import axios from "axios";
 import keys from '../config/keys';
-
+console.log(process.env.NODE_ENV)
 console.log(process.env)
 console.log(keys)
 console.log(keys.serverURL)
