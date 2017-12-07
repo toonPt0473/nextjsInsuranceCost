@@ -1,8 +1,11 @@
 import axios from "axios";
 import keys from '../config/keys';
 
+console.log(process.env)
+console.log(keys)
+console.log(keys.serverURL)
 
-console.log(require('../config/prod').serverURL)
+
 export const addForm = (data) => {
     return { type : "ADD_FORM" , payload : data} 
 }
