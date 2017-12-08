@@ -142,7 +142,7 @@ class LandingForm extends Component {
                 </div>
 
                 <div style={{textAlign: "center"}}>
-                    <h1 style={{color: "#7b99ab"}}>เบี้ยประกัน : {insuranceCost}</h1>
+                    <h1 style={{color: "#7b99ab"}}>เบี้ยประกัน : {insuranceCost} บาท/เดือน</h1>
                 </div>
                 
                 {this.planSelectComponent()}
