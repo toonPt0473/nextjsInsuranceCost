@@ -98,10 +98,10 @@ class LandingForm extends Component {
             }
              
             while(!regexCheckPhone && phone !== null){
-                phone = prompt('กรุณากรอกเบอร์โทร์ให้ถูกต้อง(เช่น 0811234567)');
+                phone = prompt('กรุณากรอกเบอร์โทรให้ถูกต้อง(เช่น 0811234567)');
                 regexCheckPhone = /^[0-9]*$/.test(phone)
             }
-            console.log(phone !== null && name !== null && regexCheckPhone)
+
             if(phone !== null && name !== null && regexCheckPhone){
                 alert(`เราจะรีบติดต่อคุณ ${name} ที่เบอร์ ${phone} ภายใน 24 ชม ขอบคุณที่ใช้บริการ`)
                 await this.props.sendFormToServer({...this.state , name , phone })
@@ -116,7 +116,7 @@ class LandingForm extends Component {
         const { plan1 , plan2 , plan3 , plan4 , sex , age } = this.state
         const insuranceCost = ((plan1/1000 + plan2/3000 + plan3/2000 + plan4/1500) * age/10 * sex).toFixed()
         return(
-            <div>
+            <div className="form-container">
                 <div style={{textAlign: "center"}}>
                     <button 
                         className={this.state.sex === 1 ? "active" : ""}
@@ -129,19 +129,20 @@ class LandingForm extends Component {
                         onClick={() => this.setState({sex : 2})}
                     >หญิง
                     </button>
-                    {this.state.formSend && !this.state.sex && <div className="warning">pls select your gentle</div>}
+                    {this.state.formSend && !this.state.sex && <div className="warning">กรุณาระบุเพศของท่าน</div>}
                 </div>
 
-                <div style={{textAlign: "center"}}>
-                    <div>อายุ</div>
+                <div style={{textAlign: "center" , color: "#7b99ab"}}>
+                    <h2 className="age">อายุ &nbsp;
                     <select name="age" onChange={(e) => this.setState({age : e.target.value})}>
                         {this.renderAge()}
                     </select>
-                    {this.state.formSend && !this.state.age && <div className="warning">pls select your age</div>}
+                    </h2> 
+                    {this.state.formSend && !this.state.age && <div className="warning">กรุณาระบุอายุของท่าน</div>}
                 </div>
 
                 <div style={{textAlign: "center"}}>
-                    <h1 style={{color: "#427af4"}}>เบี้ยประกัน : {insuranceCost}</h1>
+                    <h1 style={{color: "#7b99ab"}}>เบี้ยประกัน : {insuranceCost}</h1>
                 </div>
                 
                 {this.planSelectComponent()}
@@ -158,17 +159,12 @@ class LandingForm extends Component {
                     div {
                         overflow: hidden;
                     }
+                    h1{
+                        margin-top: 7px;
+                        margin-bottom: 7px;
+                    }
+                    
                 `}</style>
-                <style jsx global>{`
-                    .active {
-                        background: #427af4;
-                        color: white
-                    }
-                    .warning{
-                        color : red
-                    }
-                `}
-                </style>
             </div>
         )
     }

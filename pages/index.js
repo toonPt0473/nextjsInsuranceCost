@@ -22,16 +22,50 @@ class Index extends Component {
             <div style={{width :"70%" ,position : "relative" , left : "15%"}}>
                 <LandingForm />
             </div>
-            <style jsx>{`
-                div.index-container {
-                    padding-top: 20px;
-                }
-            `}</style>
             <style jsx global>{`
+                h1 ,h2 ,h3 ,h4 ,h5 ,h6 ,p{
+                    margin: 7px 0px;
+                }
                 body , #__next , #__next + div , .index-container{
                     height: 100%;
                     padding: 0;
                     margin: 0;
+                    font-family: Prompt;
+                }
+                button{
+                    font-family : inherit;
+                    font-size: 1em;
+                    -webkit-border-radius: 3;
+                    -moz-border-radius: 3;
+                    border-radius: 15px;
+                    -webkit-box-shadow: 5px 5px 12px #666666;
+                    -moz-box-shadow: 5px 5px 12px #666666;
+                    box-shadow: 5px 5px 12px #666666;
+                    color: #ffffff;
+                    background: #7b99ab;
+                    padding: 10px 20px 10px 20px;
+                    margin:8px;
+                    text-decoration: none;
+                    border: none;
+                    
+                }
+                button:hover{
+                    cursor: pointer;
+                    background: #3cb0fd;
+                    text-decoration: none;
+                }
+                button:focus{
+                    text-decoration: none;
+                    border: none;
+                    outline: none;
+                }
+
+                .active {
+                    background: #427af4;
+                    color: white;
+                }
+                .warning{
+                    color : red
                 }
             `}</style>
         </div>

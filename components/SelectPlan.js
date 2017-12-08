@@ -16,14 +16,13 @@ const SelectPlan = (props) => {
                 </div> 
                 <RenderChoice values={values} addValue={addValue} active={active}/>
             </div>
-            {validate ? <div className="warning flex-item">pls select {name}</div> : ''}
+            {validate ? <div className="warning flex-item">กรุณาเลือกความคุ้มครอง {name}</div> : ''}
             <style jsx>{`
                 .flex{
+                    color:#7b99ab;
                     display: flex;
                     border-bottom: 1px solid #aaa;
                     width: 100%;
-                    background-color: white;
-                    color: black;
                     justify-content: left;
                     margin: auto;
                     margin-bottom: 8px;

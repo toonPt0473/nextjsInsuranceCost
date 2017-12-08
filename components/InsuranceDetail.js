@@ -5,7 +5,7 @@ export class InsuranceDetail extends Component {
         const left = this.props.index%2 === 0 ? "1500px" : "-1500px"
         return (
             <div className={"is-showing"}>
-                <p>สัญญาเพิ่มเติม : <strong>{this.props.name}</strong> ความคุ้มครอง :{this.props.coverage} บาท</p>
+                <p>สัญญาเพิ่มเติม : <strong>{this.props.name}</strong> ความคุ้มครอง : <strong>{this.props.coverage}</strong> บาท</p>
                 <h5>{this.props.detail}</h5>
                 
                 <style jsx>{`
