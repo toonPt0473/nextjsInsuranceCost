@@ -7,6 +7,8 @@ import Router from 'next/router';
 import { PlanFIELD } from './FIELD'
 import * as actions from '../actions';
 import SelectPlan from './SelectPlan';
+import InsuranceDetail from '../components/InsuranceDetail'
+
 
 const uuidv4 = require('uuid/v4');
 
@@ -14,7 +16,7 @@ class LandingForm extends Component {
     constructor(props){
         super(props);
         this.sendFormValues = this.sendFormValues.bind(this)
-        this.planComponent = this.planComponent.bind(this)
+        this.planSelectComponent = this.planSelectComponent.bind(this)
         this.sendFormValues = this.sendFormValues.bind(this)
     }
     
@@ -34,7 +36,7 @@ class LandingForm extends Component {
         return thisState
     }
 
-    planComponent(){
+    planSelectComponent(){
         return PlanFIELD.map(({name , values , image , content}) => {
             return (
                 <SelectPlan 
@@ -48,6 +50,18 @@ class LandingForm extends Component {
                     active={this.state[name]}
                 />
             )
+        })
+    }
+
+    planDetailComponent(){
+        return PlanFIELD.map( ({ detail , name } , index) => {
+            return  <InsuranceDetail 
+                        detail={detail}
+                        name={name}
+                        key={uuidv4()}
+                        coverage={this.state[name]}
+                        index={index}
+                    />
         })
     }
 
@@ -130,7 +144,7 @@ class LandingForm extends Component {
                     <h1 style={{color: "#427af4"}}>เบี้ยประกัน : {insuranceCost}</h1>
                 </div>
                 
-                {this.planComponent()}
+                {this.planSelectComponent()}
 
                 <div style={{textAlign: "center"}}>
                     <Link href="/calculate">
@@ -139,6 +153,12 @@ class LandingForm extends Component {
                     <button onClick={this.sendFormValues}>ซื้อประกันนี้</button>
                 </div>
 
+                {this.planDetailComponent()}
+                <style jsx>{`
+                    div {
+                        overflow: hidden;
+                    }
+                `}</style>
                 <style jsx global>{`
                     .active {
                         background: #427af4;
