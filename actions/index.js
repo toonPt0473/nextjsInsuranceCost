@@ -20,3 +20,10 @@ export const onLoad = () => {
 export const loadSuccess = () => {
     return { type : "LOAD_SUCCESS"}
 } 
+
+export const fetchData = () => {
+    return async dispatch => {
+        const res = await axios.get(`${keys.serverURL}/db`);
+        dispatch({type: "FETCH_DB" , payload: res.data})
+    }
+}
