@@ -106,7 +106,7 @@ class LandingForm extends Component {
                 await this.props.sendFormToServer({...this.state , name , phone })
             }
             
-            //window.location = "http://www.google.co.th"
+            window.location = "http://www.google.co.th"
         }
         this.props.loadSuccess();
         
