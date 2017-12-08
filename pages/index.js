@@ -59,11 +59,6 @@ class Index extends Component {
                     border: none;
                     outline: none;
                 }
-
-                .active {
-                    background: #427af4;
-                    color: white;
-                }
                 .warning{
                     color : red
                 }
