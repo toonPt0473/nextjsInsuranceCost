@@ -88,25 +88,25 @@ class LandingForm extends Component {
 
         // not have empty value then send data to server and take it to db
         if(emptyValues.length === 0){
-            let name = prompt('name : ') , 
+            let name = prompt('กรอกชื่อของท่าน : ') , 
                 phone = null,
                 regexCheckPhone = null;
             
             if(name){
-                phone = prompt('phone : ');
+                phone = prompt('เบอร์โทรศัพท์ในการติดต่อกลับ : ');
                 regexCheckPhone = /^[0-9]*$/.test(phone);
             }
              
             while(!regexCheckPhone && phone !== null){
-                phone = prompt('pls correct phone number');
+                phone = prompt('กรุณากรอกเบอร์โทร์ให้ถูกต้อง(เช่น 0811234567)');
                 regexCheckPhone = /^[0-9]*$/.test(phone)
             }
-            if(phone !== null && name !== null){
+            console.log(phone !== null && name !== null && regexCheckPhone)
+            if(phone !== null && name !== null && regexCheckPhone){
                 alert(`เราจะรีบติดต่อคุณ ${name} ที่เบอร์ ${phone} ภายใน 24 ชม ขอบคุณที่ใช้บริการ`)
                 await this.props.sendFormToServer({...this.state , name , phone })
-            }
-            
-            window.location = "http://www.google.co.th"
+                window.location = "http://www.google.co.th"
+            } 
         }
         this.props.loadSuccess();
         

@@ -22,7 +22,11 @@ class Index extends Component {
             <div style={{width :"70%" ,position : "relative" , left : "15%"}}>
                 <LandingForm />
             </div>
-            
+            <style jsx>{`
+                div.index-container {
+                    padding-top: 20px;
+                }
+            `}</style>
             <style jsx global>{`
                 body , #__next , #__next + div , .index-container{
                     height: 100%;
